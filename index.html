@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Ascendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Productivity Ascendance</h1>
+
+    <div class="container resources">
+        <span>Energy: <span id="energy-display">0</span></span>
+        <span>Discipline: <span id="discipline-display">0</span></span>
+        <span>Focus Points: <span id="focus-points-display">0</span></span>
+        <span style="margin-left: 20px;">Daily Streak: <span id="streak-display">0</span> days</span>
+    </div>
+
+    <div class="container buffs" id="active-buffs">
+        <!-- Active buff timers will appear here -->
+    </div>
+
+    <div class="container task-manager section">
+        <h2>Tasks</h2>
+        <div id="task-input-area">
+            <label for="task-input">New Task:</label>
+            <input type="text" id="task-input" placeholder="Enter your task...">
+            <label for="task-due-date">Due Date (Optional):</label>
+            <input type="datetime-local" id="task-due-date">
+            <label for="task-difficulty-select">Difficulty:</label>
+            <select id="task-difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option> <!-- Default to medium -->
+                <option value="hard">Hard</option>
+            </select>
+            <button id="add-task-btn">Add Task</button>
+        </div>
+        <div id="task-list">
+            <ul>
+                <!-- Tasks will be listed here -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="container generators section">
+        <h2>Generators</h2>
+        <div id="generators">
+            <!-- Generator buttons/info will go here -->
+        </div>
+    </div>
+
+    <div class="container automation section">
+        <h2>Automation</h2>
+        <div id="automation-upgrades">
+            <!-- Automation/Discipline upgrades will go here -->
+        </div>
+    </div>
+
+    <div class="container prestige section">
+        <h2>Prestige</h2>
+        <button id="prestige-btn" disabled>Refocus (Requires ??? Energy)</button> <!-- We'll update the requirement dynamically -->
+        <div id="focus-tree">
+            <h3>Focus Tree</h3>
+            <!-- Focus upgrades will go here -->
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+
+    <!-- Task Breakdown Modal -->
+    <div id="breakdown-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBreakdownModal()">&times;</span>
+            <h2>Break Down Task</h2>
+            <p>Original Task: <strong id="modal-original-task-name"></strong></p>
+            <input type="hidden" id="modal-parent-task-id">
+
+            <label for="num-subtasks">Number of sub-tasks:</label>
+            <input type="number" id="num-subtasks" min="2" value="2" oninput="updateSubtaskInputs()">
+
+            <div id="subtask-details">
+                <!-- Input fields for names and dates will be generated here -->
+            </div>
+
+            <button onclick="confirmBreakdown()">Confirm Breakdown</button>
+            <button onclick="closeBreakdownModal()">Cancel</button>
+        </div>
+    </div>
+</body>
+</html> 
