@@ -2,7 +2,7 @@
 
 ## Description
 
-Spark is a web-based incremental game where you manage resources like Energy, Focus, and Discipline to progress. Build generators to automate energy production, complete tasks to gain various rewards, and eventually prestige to unlock powerful upgrades.
+Spark is a web-based incremental game where you have your to-do list you earn resources from doing things on the list based on diffculty that you assign. 
 
 ## How to Play
 
